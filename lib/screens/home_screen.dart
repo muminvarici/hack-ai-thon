@@ -4,6 +4,10 @@ import '../models/bank_model.dart';
 import '../models/bank_module.dart';
 import 'bank_selection_screen.dart';
 import 'accounts_screen.dart';
+import 'cards_screen.dart';
+import 'payments_screen.dart';
+import 'transfer_screen.dart';
+import 'investment_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   final RxList<BankModule> addedModules = <BankModule>[].obs;
@@ -74,7 +78,7 @@ class HomeScreen extends StatelessWidget {
               title: const Text('Kartlarım'),
               onTap: () {
                 Get.back();
-                // TODO: Kartlarım sayfasına yönlendir
+                Get.to(() => CardsScreen());
               },
             ),
             ListTile(
@@ -82,7 +86,7 @@ class HomeScreen extends StatelessWidget {
               title: const Text('Ödemeler'),
               onTap: () {
                 Get.back();
-                // TODO: Ödemeler sayfasına yönlendir
+                Get.to(() => PaymentsScreen());
               },
             ),
             ListTile(
@@ -90,15 +94,15 @@ class HomeScreen extends StatelessWidget {
               title: const Text('Para Transferi'),
               onTap: () {
                 Get.back();
-                // TODO: Para Transferi sayfasına yönlendir
+                Get.to(() => const TransferScreen());
               },
             ),
             ListTile(
               leading: const Icon(Icons.trending_up),
               title: const Text('Yatırım'),
               onTap: () {
+                Get.to(() => InvestmentScreen());
                 Get.back();
-                // TODO: Yatırım sayfasına yönlendir
               },
             ),
             const Divider(),
