@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import '../models/bank_model.dart';
 import '../models/bank_module.dart';
 import 'bank_selection_screen.dart';
+import 'accounts_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   final RxList<BankModule> addedModules = <BankModule>[].obs;
@@ -16,17 +17,117 @@ class HomeScreen extends StatelessWidget {
       appBar: AppBar(
         title: const Text('Fusion Bank'),
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
-            onPressed: () async {
-              final bank = await Get.to(() => BankSelectionScreen());
-              if (bank != null) {
-                selectedBank.value = bank;
-              }
-            },
-          ),
-        ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topLeft,
+                  end: Alignment.bottomRight,
+                  colors: [Colors.blue.shade900, Colors.blue.shade500],
+                ),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  const CircleAvatar(
+                    radius: 30,
+                    backgroundColor: Colors.white,
+                    child: Icon(Icons.person, size: 35, color: Colors.blue),
+                  ),
+                  const SizedBox(height: 10),
+                  const Text(
+                    'Hoş Geldiniz',
+                    style: TextStyle(color: Colors.white, fontSize: 18),
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    'user@example.com',
+                    style: TextStyle(
+                      color: Colors.white.withOpacity(0.8),
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            ListTile(
+              leading: const Icon(Icons.home),
+              title: const Text('Ana Sayfa'),
+              onTap: () {
+                Get.back();
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.account_balance),
+              title: const Text('Hesaplarım'),
+              onTap: () {
+                Get.back();
+                Get.to(() => AccountsScreen());
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.credit_card),
+              title: const Text('Kartlarım'),
+              onTap: () {
+                Get.back();
+                // TODO: Kartlarım sayfasına yönlendir
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.payment),
+              title: const Text('Ödemeler'),
+              onTap: () {
+                Get.back();
+                // TODO: Ödemeler sayfasına yönlendir
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.send),
+              title: const Text('Para Transferi'),
+              onTap: () {
+                Get.back();
+                // TODO: Para Transferi sayfasına yönlendir
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.trending_up),
+              title: const Text('Yatırım'),
+              onTap: () {
+                Get.back();
+                // TODO: Yatırım sayfasına yönlendir
+              },
+            ),
+            const Divider(),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('Ayarlar'),
+              onTap: () {
+                Get.back();
+                // TODO: Ayarlar sayfasına yönlendir
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.help),
+              title: const Text('Yardım'),
+              onTap: () {
+                Get.back();
+                // TODO: Yardım sayfasına yönlendir
+              },
+            ),
+            ListTile(
+              leading: const Icon(Icons.logout),
+              title: const Text('Çıkış Yap'),
+              onTap: () {
+                Get.back();
+                // TODO: Çıkış işlemi
+              },
+            ),
+          ],
+        ),
       ),
       body: Obx(() {
         if (selectedBank.value == null) {
