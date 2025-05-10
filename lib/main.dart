@@ -4,6 +4,7 @@ import 'screens/home_screen.dart';
 import 'screens/bank_selection_screen.dart';
 import 'screens/bank_detail_screen.dart';
 import 'controllers/bank_module_controller.dart';
+import 'controllers/investment_controller.dart';
 
 void main() {
   runApp(const MyApp());
@@ -44,6 +45,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Get.put(BankModuleController());
     Get.put(HomeScreen());
     Get.put(BankSelectionScreen());
+    Get.put(InvestmentController());
 
     // 2 saniye bekle
     await Future.delayed(const Duration(seconds: 2));

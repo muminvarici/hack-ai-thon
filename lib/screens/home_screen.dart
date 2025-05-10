@@ -101,8 +101,8 @@ class HomeScreen extends StatelessWidget {
               leading: const Icon(Icons.trending_up),
               title: const Text('Yatırım'),
               onTap: () {
-                Get.to(() => InvestmentScreen());
                 Get.back();
+                Get.to(() => InvestmentScreen());
               },
             ),
             const Divider(),
