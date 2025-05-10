@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'bank_module.dart';
 
 class Bank {
   final String name;
@@ -6,6 +7,7 @@ class Bank {
   final Color primaryColor;
   final Color secondaryColor;
   final String description;
+  final List<BankModule> modules;
 
   const Bank({
     required this.name,
@@ -13,5 +15,6 @@ class Bank {
     required this.primaryColor,
     required this.secondaryColor,
     required this.description,
+    required this.modules,
   });
 }

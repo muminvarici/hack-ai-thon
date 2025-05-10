@@ -2,68 +2,30 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../models/bank_model.dart';
 import '../models/bank_module.dart';
+import 'home_screen.dart';
 
 class BankDetailScreen extends StatelessWidget {
   final Bank bank;
+  final HomeScreen homeScreen;
 
-  const BankDetailScreen({super.key, required this.bank});
+  const BankDetailScreen({
+    super.key,
+    required this.bank,
+    required this.homeScreen,
+  });
 
-  List<BankModule> get modules => [
-    BankModule(
-      name: 'Hesaplarım',
-      icon: Icons.account_balance_wallet,
-      color: Colors.blue,
-      description: 'Hesap bakiyelerinizi görüntüleyin',
-    ),
-    BankModule(
-      name: 'Krediler',
-      icon: Icons.credit_card,
-      color: Colors.green,
-      description: 'Kredi işlemlerinizi yönetin',
-    ),
-    BankModule(
-      name: 'Para Transferi',
-      icon: Icons.send,
-      color: Colors.orange,
-      description: 'Para transferi yapın',
-    ),
-    BankModule(
-      name: 'Yatırım',
-      icon: Icons.trending_up,
-      color: Colors.purple,
-      description: 'Yatırım işlemlerinizi yönetin',
-    ),
-    BankModule(
-      name: 'Ödemeler',
-      icon: Icons.payment,
-      color: Colors.red,
-      description: 'Fatura ve ödemelerinizi yapın',
-    ),
-    BankModule(
-      name: 'Döviz',
-      icon: Icons.currency_exchange,
-      color: Colors.teal,
-      description: 'Döviz işlemlerinizi yapın',
-    ),
-    BankModule(
-      name: 'Sigorta',
-      icon: Icons.security,
-      color: Colors.indigo,
-      description: 'Sigorta ürünlerinizi yönetin',
-    ),
-    BankModule(
-      name: 'Kartlarım',
-      icon: Icons.credit_card,
-      color: Colors.amber,
-      description: 'Kart işlemlerinizi yönetin',
-    ),
-    BankModule(
-      name: 'Müşteri Hizmetleri',
-      icon: Icons.support_agent,
-      color: Colors.pink,
-      description: 'Destek alın',
-    ),
-  ];
+  void _addModule(BankModule module) {
+    homeScreen.addedModules.add(module);
+    Get.back();
+    Get.snackbar(
+      'Modül Eklendi',
+      '${module.name} modülü başarıyla eklendi',
+      snackPosition: SnackPosition.BOTTOM,
+      backgroundColor: module.color.withOpacity(0.1),
+      colorText: module.color,
+      duration: const Duration(seconds: 2),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -95,9 +57,9 @@ class BankDetailScreen extends StatelessWidget {
                     crossAxisSpacing: 16,
                     mainAxisSpacing: 16,
                   ),
-                  itemCount: modules.length,
+                  itemCount: bank.modules.length,
                   itemBuilder: (context, index) {
-                    final module = modules[index];
+                    final module = bank.modules[index];
                     return Card(
                       elevation: 4,
                       shadowColor: module.color.withOpacity(0.3),
@@ -105,9 +67,7 @@ class BankDetailScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(16),
                       ),
                       child: InkWell(
-                        onTap: () {
-                          // TODO: Modül detay sayfasına yönlendir
-                        },
+                        onTap: () => _addModule(module),
                         borderRadius: BorderRadius.circular(16),
                         child: Container(
                           padding: const EdgeInsets.all(16),

@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import '../models/bank_model.dart';
+import '../models/bank_module.dart';
 import 'bank_detail_screen.dart';
+import 'home_screen.dart';
 
 class BankSelectionScreen extends StatelessWidget {
   BankSelectionScreen({super.key});
@@ -13,6 +15,44 @@ class BankSelectionScreen extends StatelessWidget {
       primaryColor: const Color(0xFF00A0DC),
       secondaryColor: const Color(0xFF004990),
       description: 'Türkiye\'nin öncü dijital bankası',
+      modules: [
+        BankModule(
+          name: 'Hesaplarım',
+          icon: Icons.account_balance_wallet,
+          color: Colors.blue,
+          description: 'Hesap bakiyelerinizi görüntüleyin',
+        ),
+        BankModule(
+          name: 'Krediler',
+          icon: Icons.credit_card,
+          color: Colors.green,
+          description: 'Kredi işlemlerinizi yönetin',
+        ),
+        BankModule(
+          name: 'Para Transferi',
+          icon: Icons.send,
+          color: Colors.orange,
+          description: 'Para transferi yapın',
+        ),
+        BankModule(
+          name: 'Yatırım',
+          icon: Icons.trending_up,
+          color: Colors.purple,
+          description: 'Yatırım işlemlerinizi yönetin',
+        ),
+        BankModule(
+          name: 'Ödemeler',
+          icon: Icons.payment,
+          color: Colors.red,
+          description: 'Fatura ve ödemelerinizi yapın',
+        ),
+        BankModule(
+          name: 'Döviz',
+          icon: Icons.currency_exchange,
+          color: Colors.teal,
+          description: 'Döviz işlemlerinizi yapın',
+        ),
+      ],
     ),
     Bank(
       name: 'Ziraat Bankası',
@@ -20,6 +60,38 @@ class BankSelectionScreen extends StatelessWidget {
       primaryColor: const Color(0xFFE30613),
       secondaryColor: const Color(0xFFF8B500),
       description: 'Türkiye\'nin en köklü bankası',
+      modules: [
+        BankModule(
+          name: 'Hesaplarım',
+          icon: Icons.account_balance_wallet,
+          color: Colors.blue,
+          description: 'Hesap bakiyelerinizi görüntüleyin',
+        ),
+        BankModule(
+          name: 'Krediler',
+          icon: Icons.credit_card,
+          color: Colors.green,
+          description: 'Kredi işlemlerinizi yönetin',
+        ),
+        BankModule(
+          name: 'Tarım Kredileri',
+          icon: Icons.agriculture,
+          color: Colors.lightGreen,
+          description: 'Tarım kredileri başvurusu yapın',
+        ),
+        BankModule(
+          name: 'KOSGEB',
+          icon: Icons.business,
+          color: Colors.brown,
+          description: 'KOSGEB desteklerini görüntüleyin',
+        ),
+        BankModule(
+          name: 'Ödemeler',
+          icon: Icons.payment,
+          color: Colors.red,
+          description: 'Fatura ve ödemelerinizi yapın',
+        ),
+      ],
     ),
     Bank(
       name: 'Kuveyttürk',
@@ -27,6 +99,38 @@ class BankSelectionScreen extends StatelessWidget {
       primaryColor: const Color(0xFF00A0DC),
       secondaryColor: const Color(0xFF004990),
       description: 'Katılım bankacılığında öncü',
+      modules: [
+        BankModule(
+          name: 'Hesaplarım',
+          icon: Icons.account_balance_wallet,
+          color: Colors.blue,
+          description: 'Hesap bakiyelerinizi görüntüleyin',
+        ),
+        BankModule(
+          name: 'Katılım Hesapları',
+          icon: Icons.account_balance,
+          color: Colors.green,
+          description: 'Katılım hesaplarınızı yönetin',
+        ),
+        BankModule(
+          name: 'Murabaha',
+          icon: Icons.attach_money,
+          color: Colors.orange,
+          description: 'Murabaha işlemlerinizi yapın',
+        ),
+        BankModule(
+          name: 'Sukuk',
+          icon: Icons.currency_pound,
+          color: Colors.purple,
+          description: 'Sukuk işlemlerinizi yönetin',
+        ),
+        BankModule(
+          name: 'Ödemeler',
+          icon: Icons.payment,
+          color: Colors.red,
+          description: 'Fatura ve ödemelerinizi yapın',
+        ),
+      ],
     ),
     Bank(
       name: 'İş Bankası',
@@ -34,6 +138,44 @@ class BankSelectionScreen extends StatelessWidget {
       primaryColor: const Color(0xFFE30613),
       secondaryColor: const Color(0xFFF8B500),
       description: 'Türkiye\'nin en büyük özel bankası',
+      modules: [
+        BankModule(
+          name: 'Hesaplarım',
+          icon: Icons.account_balance_wallet,
+          color: Colors.blue,
+          description: 'Hesap bakiyelerinizi görüntüleyin',
+        ),
+        BankModule(
+          name: 'Krediler',
+          icon: Icons.credit_card,
+          color: Colors.green,
+          description: 'Kredi işlemlerinizi yönetin',
+        ),
+        BankModule(
+          name: 'Yatırım',
+          icon: Icons.trending_up,
+          color: Colors.purple,
+          description: 'Yatırım işlemlerinizi yönetin',
+        ),
+        BankModule(
+          name: 'Sigorta',
+          icon: Icons.security,
+          color: Colors.indigo,
+          description: 'Sigorta ürünlerinizi yönetin',
+        ),
+        BankModule(
+          name: 'Ödemeler',
+          icon: Icons.payment,
+          color: Colors.red,
+          description: 'Fatura ve ödemelerinizi yapın',
+        ),
+        BankModule(
+          name: 'Döviz',
+          icon: Icons.currency_exchange,
+          color: Colors.teal,
+          description: 'Döviz işlemlerinizi yapın',
+        ),
+      ],
     ),
     Bank(
       name: 'Akbank',
@@ -41,6 +183,50 @@ class BankSelectionScreen extends StatelessWidget {
       primaryColor: const Color(0xFFE30613),
       secondaryColor: const Color(0xFFF8B500),
       description: 'Dijital bankacılıkta öncü',
+      modules: [
+        BankModule(
+          name: 'Hesaplarım',
+          icon: Icons.account_balance_wallet,
+          color: Colors.blue,
+          description: 'Hesap bakiyelerinizi görüntüleyin',
+        ),
+        BankModule(
+          name: 'Krediler',
+          icon: Icons.credit_card,
+          color: Colors.green,
+          description: 'Kredi işlemlerinizi yönetin',
+        ),
+        BankModule(
+          name: 'Para Transferi',
+          icon: Icons.send,
+          color: Colors.orange,
+          description: 'Para transferi yapın',
+        ),
+        BankModule(
+          name: 'Yatırım',
+          icon: Icons.trending_up,
+          color: Colors.purple,
+          description: 'Yatırım işlemlerinizi yönetin',
+        ),
+        BankModule(
+          name: 'Ödemeler',
+          icon: Icons.payment,
+          color: Colors.red,
+          description: 'Fatura ve ödemelerinizi yapın',
+        ),
+        BankModule(
+          name: 'Döviz',
+          icon: Icons.currency_exchange,
+          color: Colors.teal,
+          description: 'Döviz işlemlerinizi yapın',
+        ),
+        BankModule(
+          name: 'Kartlarım',
+          icon: Icons.credit_card,
+          color: Colors.amber,
+          description: 'Kart işlemlerinizi yönetin',
+        ),
+      ],
     ),
   ];
 
@@ -74,7 +260,12 @@ class BankSelectionScreen extends StatelessWidget {
                 ),
                 child: InkWell(
                   onTap: () {
-                    Get.to(() => BankDetailScreen(bank: bank));
+                    Get.to(
+                      () => BankDetailScreen(
+                        bank: bank,
+                        homeScreen: Get.find<HomeScreen>(),
+                      ),
+                    );
                   },
                   borderRadius: BorderRadius.circular(20),
                   child: Container(
